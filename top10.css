@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    font-family: fantasy;
+    color: white;
+}
+
+body {
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+header {
+    height: 80px;
+    background: rgba(0,0,0,0.7);
+ } 
+
+ nav{
+     float: right;
+     margin-right: 5%;
+     padding: 20px;
+ }
+
+ nav a{
+     margin-left: 30px;
+     font-size: 30px;
+     padding: 5px;
+     text-decoration: none;
+     letter-spacing: 1px;
+     font-family: 'Yanone Kaffeesatz', fantasy;
+ }
+ nav a:hover{
+    cursor: pointer;
+ }
+
+
+table {
+    position: absolute;
+    width: 600px;
+    padding: 10px;
+    top: 110px;
+    right: 50%;
+    transform: translateX(50%);
+    border-collapse: collapse;
+    background-color: rgb(48, 48, 48);
+}
+
+th{
+    background-color: black;
+    text-align: center;
+}
+
+th,td {
+    border: 2px solid white;
+    padding: 16px 0 ;
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Yanone Kaffeesatz', fantasy;
+    letter-spacing: 1px;
+}
+
+#row1{
+background: rgb(240, 206, 13);
+}
+
+#row2{
+    background: silver;
+}
+
+#row3{
+    background: rgb(124, 55, 55);
+}

@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 18px;
+}
+
+.bg {
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.form {
+    border-radius: 20px;
+    padding-top: 50px;
+    color: white;
+    width: 390px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 60px 30px 30px 30px;
+    border-radius: 10px;
+    margin: auto 0;
+}
+
+.opis {
+    position: absolute;
+    width: 100%;
+    color: white;
+    padding-bottom: 20px;
+    top: 2%;
+    left: 62%;
+    transform: translateX(-50%);
+}
+
+.opis #title {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+}
+
+#popup_password {
+    position: absolute;
+    transform: translateY(-10px);
+    border: 2px solid gray;
+    display: none;
+    font-family: fantasy;
+    width: 84%;
+    padding: 4px;
+    border-radius: 4px;
+    color: rgba(0, 0, 0);
+    background-color: beige;
+    z-index: 3;
+}
+
+#popup_password p {
+    font-size: 16px;
+    text-align: justify;
+}
+
+#popup_username {
+    position: absolute;
+    transform: translateY(-10px);
+    border: 2px solid red;
+    display: none;
+    font-family: fantasy;
+    height: auto;
+    width: 84%;
+    padding: 4px;
+    border-radius: 4px;
+    color: rgba(0, 0, 0);
+    background-color: beige;
+    z-index: 3;
+}
+
+#popup_username p {
+    font-size: 16px;
+    text-align: center;
+}
+
+#popup_email {
+    position: absolute;
+    transform: translateY(-10px);
+    border: 2px solid red;
+    display: none;
+    font-family: fantasy;
+    height: auto;
+    width: 84%;
+    padding: 4px;
+    border-radius: 4px;
+    color: rgba(0, 0, 0);
+    background-color: beige;
+    z-index: 3;
+}
+
+#popup_email p {
+    font-size: 16px;
+    text-align: center;
+}
+
+form input[type=text],
+input[type=password],
+input[type=email] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 0.8;
+    background-image: linear-gradient(to bottom, white, white, white);
+}
+
+form .label {
+    display: inline-block;
+    padding-bottom: 5px;
+    font-weight: 700;
+}
+
+
+input:focus,
+a:hover {
+    opacity: 1;
+    outline: none;
+}
+
+form input[type=text]:focus {
+    opacity: 1;
+}
+
+#register_button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 80px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+}
+
+.deactivated {
+    opacity: 0.5;
+    font-weight: 400;
+    background-color: lightgray;
+    font-size: 20px;
+}
+
+.activated {
+    cursor: pointer;
+    background-image: linear-gradient(to right, chartreuse, forestgreen);
+    opacity: 1;
+    font-size: 20px;
+}
+.successful{
+    position: absolute;
+    height: 20vh;
+    width: 70vw;
+    top:40%;
+    left:50%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to right, rgba(0,250,0,0),rgba(0,250,0,1),rgba(0,250,0,1),rgba(0,250,0,1),rgba(0,250,0,0));
+    z-index: -999;
+   opacity: 0;
+}
+
+.successful p{
+    position: absolute;
+    width: 500px;
+    text-align: center;
+    top:40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    font-weight: 700;
+    user-select: none;
+    color: white;
+}
+.successBackButton{
+    position: absolute;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    width: 200px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 20px;
+    bottom: 20%;
+    left:50%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to right, rgba(250,250,250,0),rgba(250,250,250,1),rgba(250,250,250,1),rgba(250,250,250,1),rgba(250,250,250,0));
+}
+
+.animateIn{
+    opacity: 1;
+    visibility: visible;
+    animation: slideIn 0.5s ease forwards;
+}
+
+.animateOut{
+    opacity: 1;
+    visibility: visible;
+    animation: slideOut 0.5s ease;
+}
+
+#darkId{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 900;
+    display: none;
+}
+
+.back a {
+    position: absolute;
+    top: 2%;
+    right: 11%;
+    color: white;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+
+@media (max-height: 700px) {
+    .form {
+        animation: moveUp 1s ease-out forwards;
+    }
+}
+
+@media (min-height: 700px) {
+    .form {
+        animation: moveDown 1s ease-out forwards;
+    }
+}
+
+@keyframes slideIn{
+    from{
+        z-index: 999;
+        left:-50%;
+    }
+    to{
+        z-index: 999;
+        left:50%;
+    }
+}
+
+@keyframes slideOut{
+     0%  {
+         z-index: 999;
+         left:50%;
+    }
+  
+    100%{
+        opacity: 0;
+        left:60%;
+    }
+}
+
+@keyframes moveUp {
+    from {
+        top: 20%;
+    }
+
+    to {
+        top: 7%;
+    }
+}
+
+@keyframes moveDown {
+    from {
+        top: 15%;
+    }
+
+    to {
+        top: 20%;
+    }
+}

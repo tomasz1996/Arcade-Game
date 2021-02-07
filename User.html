@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="User.css" />
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
+    <!-- fixing fevconicon bug  -->
+    <link rel="shortcut icon" href="#">
+    <title>User Panel</title>
+</head>
+
+<body>
+        <header>
+            <div class="intro">
+                <p class="hello">Hello <span id="spanName"></span>, your TOP score is: <span id="scoreOnTop"></span></p>
+            </div>
+            
+            <nav>
+                <a id="logOutButton">Log Out</a>
+                <a id="top10Button">Top 10</a>
+            </nav>
+                
+        </header>
+
+        <div class="gameTitle">
+            <h2 class="title">Space Warrior</h2>
+        </div>
+    
+        <canvas id = "mycanvas" class="canvas" width="900" height="650"></canvas>
+        <!-- <canvas id= "can2" class="canvas2" width="300" height="150">ghf</canvas> -->
+       <div class="scoreContainer">
+            <span>Score: </span >
+            <span id="scoreValue">0</span>
+        </div>
+
+       <div id = "interface" class="gameInterface">
+            <h1>Your score:</h1>
+            <span id="scoreOnInterface">0</span>
+            <button id="startButton">START</button>
+        </div>
+    
+    <script src="User.js"></script>
+</body>
+
+</html>

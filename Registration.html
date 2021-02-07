@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Registration.css" />
+     <!-- fixing fevconicon bug  -->
+    <link rel="shortcut icon" href="#">
+
+    <title>Registration</title>
+</head>
+
+<body>
+    <div class="bg">
+
+        <form class="form">
+            <div class="opis">
+                <h1 id="title">Create an account:</h1>
+            </div>
+            <label class="label">Username (minimum 5 characters)</label><br>
+            <input id="username" type="text" placeholder="Username" name="name" minlength="5" maxlength="15" onkeyup="checkUsername()" required><br><br>
+            
+            <div id="popup_username">
+                <p>This username already exists!</p>
+            </div>
+
+            <label class="label">E-mail adress</label><br>
+            <input id="email" type="email" placeholder="E-mail adress" name="email" maxlength="30" onkeyup="checkEmail()" onkeydown="activateButton()" required><br><br>
+            
+            <div id="popup_email">
+                <p>This email already exists!</p>
+            </div>
+
+            <label class="label">Password (minimum 5 characters)</label><br>
+            <input id="new_password" type="password" placeholder="Password" onkeyup="checkNewPassword()" minlength="5" maxlength="15" required><br><br>
+
+
+            <div id="popup_password">
+                <p>Password must contain at least one number, a special character and 5 - 15 characters.</p>
+            </div>
+
+
+            <label class="label">Repeat password</label><br>
+            <input id="confirm_password" type="password" placeholder="Password" minlength="5" onkeyup="checkConfirmedPassword()" required><br><br>
+
+
+            <input id="register_button" class="deactivated" type="submit" value="Register" disabled>
+        </form>
+
+        <div class="back">
+            <a class="back_btn" href="login.html">Back</a>
+        </div>
+        
+        <div id="greenMessage" class="successful"><p>Your account has been created!</p><a id = "successToLogin" class="successBackButton"  >Back</a>
+        </div>
+        
+        <div id="darkId" class="darkClass">
+        </div>
+    </div>
+    <!--     type="module"  -->
+    <script src="Registration.js"></script>
+</body>
+
+<!--
+    <script>
+        var  new_password = document.getElementById("new_password").value;
+        var  confirm_password = document.getElementById("new_password").value;
+        var register_button = document.getElementById("register_button");
+        
+        if (document.getElementById('new_password').value ==
+    document.getElementById('confirm_password').value) {
+    document.getElementById('confirm_password').style.color = 'green';
+  } else {
+    document.getElementById('confirm_password').style.color = 'red';
+  }
+}
+    </script>
+-->
+
+</html>
