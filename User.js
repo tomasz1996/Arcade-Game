@@ -8,9 +8,10 @@ let scoreOnTop = document.getElementById("scoreOnTop");
 let scoreValue = document.getElementById("scoreValue");
 let logOutButton = document.getElementById("logOutButton");
 let top10Button = document.getElementById("top10Button");
+let playerName = document.getElementById("spanName");
 
-document.getElementById("spanName").innerHTML = loggedUser.userName;
-document.getElementById("scoreOnTop").innerHTML = loggedUser.userScore;
+playerName.innerHTML = loggedUser.userName;
+scoreOnTop.innerHTML = loggedUser.userScore;
 
 //LOG OUT 
 logOutButton.addEventListener("click", ()=>{
@@ -23,7 +24,7 @@ top10Button.addEventListener("click", ()=>{
     window.location.href = "top10.html";
 })
 
-//CANVAS 
+//Create CANVAS 
 let canvas = document.getElementById("mycanvas");
 let c = canvas.getContext('2d');
 
@@ -31,21 +32,23 @@ let bullets = [];
 let enemies = [];
 let stars = [];
 let maxStars = 15;
-let maxEnemies = 35;
+let maxEnemies = 20;
 let score = 0;
 
 let playerImage = new Image();
 playerImage.src = "images/player.png";
+
 //Create Player Object
 class Player{
-    constructor(playerX, playerY, radius, color){
+    constructor(playerX, playerY, radius){
         this.x = playerX;
         this.y = playerY;
         this.radius = radius;
-        this.color = color;
+        // this.color = color;
     }
 
     draw(){
+        //adjust image positions to actual objects
         // c.beginPath()
         // c.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
         c.drawImage(playerImage, this.x - this.radius-10, this.y - this.radius-15, this.radius*3,this.radius*3)
@@ -58,16 +61,15 @@ class Player{
 let enemyImage = new Image();
 enemyImage.src = "images/enemy_cropped.png";
 class Enemy{
-    constructor(x, y, radius, color, velocity){
+    constructor(x, y, radius, velocity){
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.color = color;
         this.velocity = velocity
     }
 
     draw(){
-        c.beginPath()
+        // c.beginPath()
         // c.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
         
         c.drawImage(enemyImage, this.x - this.radius-10, this.y - this.radius - 10, this.radius*3,this.radius*3)
@@ -101,18 +103,15 @@ class Star{
         c.shadowBlur=12
         c.fill();
         c.fill();
-        // c.fill();
         c.shadowBlur=0
     }
 
     update(){
         this.draw();
         this.y = this.y + this.radius/2;
-        // + this.radius/2;
     }
 }
 
-//Create Bullet Object
 class Bullet{
     constructor(x, y, radius, color, velocity){
         this.x = x;
@@ -136,20 +135,17 @@ class Bullet{
     }
 }
 
-//Initiate player at start
+//Create player at start
 let playerX = canvas.width / 2 ;
 let playerY = canvas.height / 1.15;
-
-let player = new Player(playerX, playerY, 20, "orange",null);
+let player = new Player(playerX, playerY, 20, null);
 
 function resetGame(){
      bullets = [];
      enemies = [];
      stars = [];
-     maxStars = 26;
-     maxEnemies = 15;
      score = 0;  
-    player = new Player(playerX, playerY, 20, "orange",null);
+    player = new Player(playerX, playerY, 20, null);
     document.getElementById("scoreValue").innerHTML = score;
 }
 
@@ -163,7 +159,7 @@ function createEnemy(){
             x: 0,
             y: Math.floor(Math.random()*(6)+2)
         }
-        enemies.push(new Enemy(randomXPosition, -randomRadius, randomRadius, "blue",velocity));
+        enemies.push(new Enemy(randomXPosition, -randomRadius, randomRadius, velocity));
         console.log("Enemies: "+ enemies.length);
     }
     
@@ -175,10 +171,11 @@ function createStar(){
         let randomRadius = Math.floor((Math.random()*5-1)+2)
         let randomXPosition = Math.floor((Math.random()*(canvas.width-20)+10))
         let velocity = 1;
-        stars.push(new Star(randomXPosition, -randomRadius, randomRadius, "white",velocity))
+        stars.push(new Star(randomXPosition, -randomRadius, randomRadius, "white", velocity))
     }
 }
 
+//Create flags to indicate which keys are pressed
 let keys = {}
 window.addEventListener("keydown", (e)=>{ 
      keys[e.code] = true;
@@ -195,6 +192,7 @@ function animate(){
     c.clearRect(0, 0, canvas.width, canvas.height);
     player.draw();
 
+    //Controll speed of the player
     if(keys["ArrowUp"]){
         if(player.y > (0 + player.radius))
              player.y -= 3; 
@@ -250,7 +248,7 @@ function animate(){
             }
         })
         //remove enemies from offscreen
-            if (enemy.y > canvas.height + enemy.radius){
+            if (enemy.y > canvas.height + enemy.radius + 500){
                 //Remove glitching effect by using setTimeout
                 setTimeout(()=>{
                     enemies.splice(enemyIndex, 1)
@@ -260,7 +258,6 @@ function animate(){
         let distanceEnemy = Math.hypot(enemy.x - player.x, enemy.y - player.y)
 
         //GAME OVER
-
         if(distanceEnemy < player.radius + enemy.radius){
             //Stop the game and show result
             let gameoverSound = new Audio();
@@ -274,10 +271,11 @@ function animate(){
             //Save highscore in memory if we have a record and display on top
             let objectIndex = users.findIndex(obj => {return obj.userId == loggedUserId})
             if(users[objectIndex].userScore < score){
-
                 users[objectIndex].userScore = score;
+                loggedUser.userScore = score;
                 localStorage.setItem("users", JSON.stringify(users));
-                document.getElementById("scoreOnTop").innerHTML = users[objectIndex].userScore;
+                localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+                scoreOnTop.innerHTML = users[objectIndex].userScore;
             }
         }
     });
@@ -315,14 +313,12 @@ canvas.addEventListener("click",(e)=>{
       x: Math.cos(atan2),
       y: Math.sin(atan2)
     }
-    // console.log("Mouse x: "+ x+" Mouse y: "+y);
     bullets.push(new Bullet(player.x, player.y, 5, "red", velocity));
 
 });
 
 //Restart the game 
 startButton.addEventListener("click",()=>{
-    // location.reload();
     interface.style.display = "none"
     resetGame();
     animate();
@@ -332,11 +328,6 @@ startButton.addEventListener("click",()=>{
 })
 
 // Sound effects obtained from https://www.zapsplat.com
-
-
-
-
-
 
 
 

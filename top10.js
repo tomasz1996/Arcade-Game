@@ -1,4 +1,4 @@
-let users = [];
+let users = "[]";
 let loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
 let backButton = document.getElementById("backButton")
 let logOutButton = document.getElementById("logOutButton")
@@ -8,13 +8,12 @@ var topTable = document.getElementById("topTable");
 
 //LOG OUT
 logOutButton.addEventListener("click", ()=>{
-    loggedUser = []
+    loggedUser = "[]"
     localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
     window.location.href = "login.html";
 })
 
 
-    
 backButton.addEventListener("click", ()=>{
     if(loggedUser.userName == "admin"){
         window.location.href = "admin.html";

@@ -1,4 +1,4 @@
-
+let numberOfPlayers = document.getElementById("numberOfPlayers");
 //LOG OUT 
 logOutButton.addEventListener("click", ()=>{
     let currentUser = []
@@ -10,10 +10,13 @@ top10Button.addEventListener("click", ()=>{
     window.location.href = "top10.html";
 })
 
-let users = [];
+let users = '[]';
 users = JSON.parse(localStorage.getItem('users'));
 
-// let table = document.getElementById("userTable");
+//Set the number of players above the table
+if(users.length > 0) numberOfPlayers.innerHTML = users.length;
+
+
 let tbody = document.querySelector("tbody");
 
 for(let i = 0; i < users.length; i++){
@@ -48,18 +51,16 @@ for(let i = 0; i < users.length; i++){
     optionsCell.appendChild(deleteButton);
     
     function resetScore(){
-            //Take id from button Id (remove "reset" from its id)
+            //Get id from button Id (remove "reset" from its id)
             let userId = this.id.slice(6,-1);
             let objectIndex = users.findIndex(obj => {return obj.userId == userId})
             users[objectIndex].userScore = 0;
-//            console.log(users[objectIndex]);
-//            console.log(users[objectIndex].userScore = 0);
             localStorage.setItem("users", JSON.stringify(users));
             location.reload();
         } 
     
     function removeUser(){
-        //Take id from button Id (remove "remove" from its id)
+            //Get id from button Id (remove "remove" from its id)
             let userId = this.id.slice(7,-1);
             let objectIndex = users.findIndex(obj => {return obj.userId == userId})
             users.splice(objectIndex,1);
