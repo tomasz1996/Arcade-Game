@@ -4,7 +4,7 @@ Web application presenting an old-fashioned game with a user registration and lo
 
 Start using application with **login.html**
 
-##### Registration validation:
+### Registration validation:
 
 - if fields are empty
 - if username or email already exists in database
@@ -12,15 +12,15 @@ Start using application with **login.html**
 - if inputs don't contain forbidden characters
 - if repeated passwords are the same
 
-Register and log in to your or Admin account where you can remove users or reset their scores.
-username: `admin`
+Register and log in to your or Admin account where you can remove users or reset their scores.<br/>
+username: `admin` <br/>
 password: `admin1!`
 
-##### Used technologies:
+### Used technologies:
 
-_JavaScript_
-_HTML_
-_CSS_
+- _JavaScript_
+- _HTML_
+- _CSS_
 
 ### Screenshots:
 
