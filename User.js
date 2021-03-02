@@ -28,6 +28,11 @@ top10Button.addEventListener("click", ()=>{
 let canvas = document.getElementById("mycanvas");
 let c = canvas.getContext('2d');
 
+c.canvas.width = 900;
+c.canvas.height = 650;
+//Using @media changes bullets prajectory
+if(window.innerHeight < 910) c.canvas.height = 550;
+
 let bullets = [];
 let enemies = [];
 let stars = [];
@@ -248,7 +253,7 @@ function animate(){
             }
         })
         //remove enemies from offscreen
-            if (enemy.y > canvas.height + enemy.radius + 500){
+            if (enemy.y > canvas.height + enemy.radius + 1200){
                 //Remove glitching effect by using setTimeout
                 setTimeout(()=>{
                     enemies.splice(enemyIndex, 1)
@@ -328,12 +333,6 @@ startButton.addEventListener("click",()=>{
 })
 
 // Sound effects obtained from https://www.zapsplat.com
-
-
-
-
-
-
 
 
 

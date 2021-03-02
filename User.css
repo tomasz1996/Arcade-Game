@@ -1,23 +1,21 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: 0;
-    /* font-family: fantasy; */
-    color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  /* font-family: fantasy; */
+  color: white;
 }
 
 body {
-    background-image: url(images/background.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Yanone Kaffeesatz', fantasy;
+  background-image: url(images/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Yanone Kaffeesatz", fantasy;
 }
-
-
 
 /* #logOutButton, #top10Button{
     font-size: 1.1rem;
@@ -36,112 +34,116 @@ background: white;
 } */
 
 header {
-    height: 80px;
-    text-align: center;
-    background: rgba(0,0,0,0.7);
-    letter-spacing: 1px;
- } 
-
- .intro {
-     float: left;
-     margin-left: 5%;
-     padding: 20px;
-     font-size: 35px;
- }
- #scoreOnTop{
-     color:red;
- }
-
- nav{
-     float: right;
-     margin-right: 5%;
-     padding: 20px;
- }
-
- nav a{
-     margin-left: 30px;
-     font-size: 30px;
-     padding: 5px;
- }
- nav a:hover{
-    cursor: pointer;
- }
-
-
-.gameTitle{
-    position: absolute;
-    font-size: 2rem;
-    width: 100%;
-    top:120px;
-    text-align: center;
-    letter-spacing: 3px;
+  height: 80px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
 }
 
-.canvas{
-    position: absolute;
-    top:190px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: url("images/game_background.jpg");
-    background-size: cover;
-    border: 5px solid silver;
-    border-radius: 5px;
-    cursor:crosshair;
+.intro {
+  float: left;
+  margin-left: 5%;
+  padding: 20px;
+  font-size: 35px;
 }
-.scoreContainer{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) ;
-    top: 200px;
-    font-size: 30px;
-    font-family: monospace;
+#scoreOnTop {
+  color: red;
 }
 
-.scoreContainer #scoreValue{
-    font-weight: 700;
-    color: white;
+nav {
+  float: right;
+  margin-right: 5%;
+  padding: 20px;
 }
 
-.gameInterface{
-    position: relative;
-    top: 280px;
-    height: 300px;
-    width: 700px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    border: 5px solid #148a14;
+nav a {
+  margin-left: 30px;
+  font-size: 30px;
+  padding: 5px;
+}
+nav a:hover {
+  cursor: pointer;
 }
 
-.gameInterface h1{
-    text-align: center;
-    color: #292828;
-    font-size: 20px;
+.gameTitle {
+  position: absolute;
+  font-size: 2rem;
+  width: 100%;
+  top: 110px;
+  text-align: center;
+  letter-spacing: 3px;
 }
 
-.gameInterface #scoreOnInterface{
-    display: block;
-    padding-top: 5px;
-    text-align: center;
-    color: black;
-    font-size: 70px;
-    font-weight: 800;
+.canvas {
+  position: absolute;
+  top: 190px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url("images/game_background.jpg");
+  background-size: cover;
+  border: 5px solid silver;
+  border-radius: 5px;
+  cursor: crosshair;
 }
-.gameInterface #startButton{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 18px;
-    margin-top: 40px;
-    color: black;
-    font-size: 30px;
-    font-weight: 600;
-    width: 70%;
-    border-radius: 12px;
-    background-color: #148a14;
-    cursor: pointer;
-    box-shadow:  2px 9px 25px rgba(0, 0, 0, 0.8);
-    
+.scoreContainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 200px;
+  font-size: 30px;
+  font-family: monospace;
 }
+
+.scoreContainer #scoreValue {
+  font-weight: 700;
+  color: white;
+}
+
+.gameInterface {
+  position: relative;
+  top: 280px;
+  height: 300px;
+  width: 700px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  border: 5px solid #148a14;
+}
+
+.gameInterface h1 {
+  text-align: center;
+  color: #292828;
+  font-size: 20px;
+}
+
+.gameInterface #scoreOnInterface {
+  display: block;
+  padding-top: 5px;
+  text-align: center;
+  color: black;
+  font-size: 70px;
+  font-weight: 800;
+}
+.gameInterface #startButton {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 18px;
+  margin-top: 40px;
+  color: black;
+  font-size: 30px;
+  font-weight: 600;
+  width: 70%;
+  border-radius: 12px;
+  background-color: #148a14;
+  cursor: pointer;
+  box-shadow: 2px 9px 25px rgba(0, 0, 0, 0.8);
+}
+/* 
+@media (max-width: 950px) {
+  .canvas {
+    width: 720px;
+  }
+} */

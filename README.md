@@ -43,3 +43,8 @@ password: `admin1!`
 
 ![screenshot](screenshots/Admin.png?raw=true) <br/><br/>
 ![screenshot](screenshots/Top10.png?raw=true) <br/><br/>
+
+#### TODOS
+
+- Make it fully responsive
+- Fix disappearing enemies
