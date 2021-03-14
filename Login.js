@@ -15,20 +15,21 @@ function checkLogin(e){
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
+    //Login as an admin
     if(username === "admin" && password === "admin1!"){
-        // document.getElementById('loginButton').classList.remove('shake');
         let currentUser = {
             userName: "admin",
             userPassword: "admin1!",
         }
         localStorage.setItem("loggedUser", JSON.stringify(currentUser));
-        window.location.href = "Admin.html"; 
+        window.location.href = "Admin.html";
+        // setTimeout(()=>{}, 1000);
     } 
 
+    let logingFlag = false;
+
     for(let i = 0; i < users.length; i++){
-    
-        if(users[i].userName === username && users[i].userPassword === password)
-        {
+        if(users[i].userName === username && users[i].userPassword === password) {
             let currentUser = {
                 userId: users[i].userId,
                 userName: users[i].userName,
@@ -38,15 +39,19 @@ function checkLogin(e){
             }
             localStorage.setItem("loggedUser", JSON.stringify(currentUser));
             window.location.href = "user.html";
+            logingFlag = true;
+            
+    }   //delay shaking when inputs are correct
+        setTimeout(()=>{
+            shake();
+        },50)
 
-        }else if(users[i].userName !== username || users[i].userPassword !== password)
-        {
-            e.preventDefault();
+        function shake(){
+            console.log(logingFlag);
             console.log("Not matching")
             document.getElementById('loginButton').classList.add('shake');
-            setTimeout(()=>{document.getElementById('loginButton').classList.remove('shake')},500)
+            setTimeout(()=>{document.getElementById('loginButton').classList.remove('shake')},500) 
         }
-    
     }
 }
     
