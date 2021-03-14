@@ -98,7 +98,37 @@ nav a:hover {
   font-weight: 700;
   color: white;
 }
+#question {
+  display: block;
+  height: 40px;
+  width: 40px;
+  z-index: 9999;
+}
 
+/* #question:hover {
+} */
+
+#controls {
+  position: absolute;
+  width: 270px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e6e6e6;
+  font-size: 1.75rem;
+  color: black;
+  /* opacity: 0; */
+  z-index: -1;
+}
+#controls b {
+  color: black;
+}
+
+/* .active {
+  z-index: 99;
+} */
+/* .deactive {
+  z-index: -1;
+} */
 .gameInterface {
   position: relative;
   top: 280px;
@@ -141,6 +171,31 @@ nav a:hover {
   cursor: pointer;
   box-shadow: 2px 9px 25px rgba(0, 0, 0, 0.8);
 }
+
+/* @keyframes slideIn {
+  from {
+    z-index: -1;
+    left: 4%;
+  }
+  to {
+    z-index: 999;
+    left: 10%;
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    z-index: 999;
+    left: 10%;
+    opacity: 1;
+  }
+
+  100% {
+    z-index: -1;
+    left: 4%;
+  }
+} */
 /* 
 @media (max-width: 950px) {
   .canvas {

@@ -13,6 +13,9 @@ let playerName = document.getElementById("spanName");
 playerName.innerHTML = loggedUser.userName;
 scoreOnTop.innerHTML = loggedUser.userScore;
 
+//Fix shooting sound outside interface at start
+interface.style.display = "block";
+
 //LOG OUT 
 logOutButton.addEventListener("click", ()=>{
     let currentUser = []
@@ -226,7 +229,7 @@ function animate(){
             //Remove glitching effect by using setTimeout
             setTimeout(()=>{
                 bullets.splice(bulletIndex, 1)
-                console.log("out");
+                console.log("Bullet out");
             },0) 
         }
     });
@@ -297,8 +300,25 @@ function animate(){
     });
 
 }
+
 //Set canvas coordinates related to canvas , not to window so left corner is (0,0)
 var canvasPosition = canvas.getBoundingClientRect();
+
+//Position question mark 
+const question = document.getElementById("question")
+const controls = document.getElementById("controls")
+question.style.position = "absolute";
+question.style.top = canvasPosition.top + 5 + "px";
+question.style.left = canvasPosition.left + 5 + "px";
+controls.style.top = canvasPosition.top + 10 + "px";
+controls.style.left = canvasPosition.left + 50 + "px";
+
+question.addEventListener("mouseover",()=>{
+    controls.style.zIndex = 1;
+})
+question.addEventListener("mouseout",()=>{
+    controls.style.zIndex = -1;
+})
 
 canvas.addEventListener("click",(e)=>{
 
@@ -312,6 +332,7 @@ canvas.addEventListener("click",(e)=>{
     let x = e.clientX - canvasPosition.left;
     let y = e.clientY - canvasPosition.top;
 
+    
     //Calculate the angle and velocity of the bullet
     let atan2 = Math.atan2(y - player.y ,x - player.x)
     let velocity = {
@@ -332,6 +353,10 @@ startButton.addEventListener("click",()=>{
     
 })
 
+//refresh the page after resize to align question img
+window.onresize = ()=>{
+    window.location.href = "user.html";
+}
 // Sound effects obtained from https://www.zapsplat.com
 
 
